@@ -2,3 +2,8 @@
   font-size: 100px;
   color: blue;
 }
+
+#firstRow {
+  display: flex;
+  flex-direction: row;
+}

@@ -18,5 +18,5 @@ const gameboard = (() => {
 })();
 
 
-const Player = (name) =>{
+const Player = (playerOne,playerTwo) =>{
 };
