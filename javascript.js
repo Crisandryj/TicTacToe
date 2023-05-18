@@ -3,8 +3,8 @@ const gameboard = (() => {
   //createboard
   const createBoard = () => {
     const firstRow = board.slice(0,3)
-    const secRow = board.slice(3,3)
-    const thirdRow = board.slice(0,3)
+    const secRow = board.slice(3,6)
+    const thirdRow = board.slice(6,9)
     console.log({firstRow, secRow, thirdRow})
   };
   //render
