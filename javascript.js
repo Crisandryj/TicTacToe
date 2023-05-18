@@ -1,11 +1,16 @@
 const gameboard = (() => {
-  let board = [1,2,3,4,5,6,7,8,9];
+  let board = ['X','O','X'
+              ,'O','X','O'
+              ,'X','O','X'];
+  //select
+  const dividOne = document.querySelectorAll('.divider');
+
   //createboard
   const createBoard = () => {
-    const firstRow = board.slice(0,3)
-    const secRow = board.slice(3,6)
-    const thirdRow = board.slice(6,9)
-    console.log({firstRow, secRow, thirdRow})
+    const divider  = '---|---|---'
+    dividOne.forEach((line) => {
+      line.textContent = divider
+    });
   };
   //render
   createBoard()
