@@ -5,22 +5,25 @@ const gameboard = (() => {
 
   //createboard
   const createBoard = () => {
-    for (let i = 0; i < rows.length; i++){
+    for (let i = 0; i < rows; i++){
       board[i] = []
-      for(let j = 0; j < columns.length;j++){
-      board[i].push(Cell())
+      for(let j = 0; j < columns;j++){
+      board[i].push(cell())
       }
     }
   };
 
-  function Cell(){
+  const cell = () =>{
     let value = 0
-  };
+    return{value}
+  }
 
   //render
-createBoard()
+ createBoard()
   return {board}
 })();
+
+console.log(gameboard.board)
 
 
 const Player = (playerOne,playerTwo) =>{
