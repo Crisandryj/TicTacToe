@@ -4,29 +4,29 @@ const gameboard = (() => {
   const columns = 3;
 
   //createboard
-  const createBoard = () => {
+  function createBoard(){
     for (let i = 0; i < rows; i++){
       board[i] = []
       for(let j = 0; j < columns;j++){
-      board[i].push(cell)
+      board[i].push(cell())
       }
     }
   };
 
-  const cell = (() =>{
-    console.log('hello')
+  function cell(){
     let value = 0
     const marker = (mark) =>{
       value = mark
       console.log(value)
     }
       return{marker}
-  })();
-
-  //render
- createBoard()
-  return {board,cell}
+    };
+  return {board,cell,createBoard}
 })();
-gameboard.cell.marker('x')
+
+
+
+
+
 const Player = (playerOne,playerTwo) =>{
 };
