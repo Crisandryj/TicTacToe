@@ -26,7 +26,7 @@ const gameboard = (() => {
 
 
 
-
+console.log(gameboard.createBoard())
 
 const Player = (playerOne,playerTwo) =>{
 };
