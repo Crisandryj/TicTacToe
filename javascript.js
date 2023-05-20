@@ -8,23 +8,25 @@ const gameboard = (() => {
     for (let i = 0; i < rows; i++){
       board[i] = []
       for(let j = 0; j < columns;j++){
-      board[i].push(cell())
+      board[i].push(cell)
       }
     }
   };
 
-  const cell = () =>{
+  const cell = (() =>{
+    console.log('hello')
     let value = 0
-    return{value}
-  }
+    const marker = (mark) =>{
+      value = mark
+      console.log(value)
+    }
+      return{marker}
+  })();
 
   //render
  createBoard()
-  return {board}
+  return {board,cell}
 })();
-
-console.log(gameboard.board)
-
-
+gameboard.cell.marker('x')
 const Player = (playerOne,playerTwo) =>{
 };
