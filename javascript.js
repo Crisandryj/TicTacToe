@@ -26,8 +26,6 @@ const gameboard = (() => {
 
 
 
-console.log(gameboard.createBoard())
-
 const Player = (mark,name) =>{
   const getMarker = () => mark
   const getName = () => name
@@ -35,17 +33,18 @@ const Player = (mark,name) =>{
   return{getName, getMarker}
 };
 
-const gameController = ((playerOne,playerTwo) =>{
-  let currentTurn = playerOne
-   console.log(currentTurn)
-  const playersTurn = (playerOne,playerTwo) => {
-     (currentTurn != playerOne) ? currentTurn = playerTwo : currentTurn = playerOne
- console.log(currentTurn)
-  }
-  return{currentTurn,playersTurn}
-})();
-
 const jim = Player('x','Jim')
 const james = Player('x','James')
 
-gameController.playersTurn(jim.getName(),james.getName())
+const gameController = ((playerOne,playerTwo) =>{
+  let currentTurn = playerOne
+  const playersTurn = (playerOne,playerTwo) => {
+     (currentTurn === playerOne) ? currentTurn = playerTwo : currentTurn = playerOne
+console.log(currentTurn)
+  }
+  return{currentTurn,playersTurn}
+})(jim.getName(),james.getName());
+
+
+gameController.playersTurn()
+// gameController.playersTurn(jim.getName(),james.getName())
