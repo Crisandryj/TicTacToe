@@ -10,6 +10,7 @@ const gameboard = (() => {
       for(let j = 0; j < columns;j++){
       board[i].push(cell())
       }
+      return {board}
     }
   };
 
@@ -33,14 +34,18 @@ const Player = (mark,name) =>{
   return{getName, getMarker}
 };
 
-const jim = Player('x','Jim')
-const james = Player('x','James')
 
-const gameController = ((playerOne,playerTwo) =>{
-  let currentTurn = playerOne
-  const playersTurn = (playerOne,playerTwo) => {
-     currentTurn = ('currentTurn' == playerOne) ? playerOne : playerTwo
+const gameController = (() =>{
+  const players = {
+    playerOne: Player('x','James'),
+    playerTwo: Player('o','Jimmy')
+  }
+  let currentTurn = players.playerOne
+  let currentBoard = gameboard.createBoard()
+
+  const switchTurn = () => {
+     currentTurn = ('currentTurn' == players.playerOne) ? players.playerTwo : players.playerOne
      console.log(currentTurn)
    }
-  return{currentTurn,playersTurn}
-})(jim,james);
+  return{currentTurn,switchTurn,currentBoard}
+})();
