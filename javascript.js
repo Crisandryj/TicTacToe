@@ -39,12 +39,8 @@ const james = Player('x','James')
 const gameController = ((playerOne,playerTwo) =>{
   let currentTurn = playerOne
   const playersTurn = (playerOne,playerTwo) => {
-     (currentTurn === playerOne) ? currentTurn = playerTwo : currentTurn = playerOne
-console.log(currentTurn)
-  }
+     currentTurn = ('currentTurn' == playerOne) ? playerOne : playerTwo
+     console.log(currentTurn)
+   }
   return{currentTurn,playersTurn}
-})(jim.getName(),james.getName());
-
-
-gameController.playersTurn()
-// gameController.playersTurn(jim.getName(),james.getName())
+})(jim,james);
