@@ -44,8 +44,11 @@ const gameController = (() =>{
   let currentBoard = gameboard.createBoard()
 
   const switchTurn = () => {
-     currentTurn = ('currentTurn' == players.playerOne) ? players.playerTwo : players.playerOne
+     currentTurn = currentTurn == players.playerOne ? players.playerTwo : players.playerOne
      console.log(currentTurn)
    }
   return{currentTurn,switchTurn,currentBoard}
 })();
+
+console.log(gameController.currentTurn)
+gameController.switchTurn()
