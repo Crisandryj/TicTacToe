@@ -47,8 +47,11 @@ const gameController = (() =>{
      currentTurn = currentTurn == players.playerOne ? players.playerTwo : players.playerOne
      console.log(currentTurn)
    }
-  return{currentTurn,switchTurn,currentBoard}
+  const playRound = () => {
+    console.log(`${currentTurn.getName()} make your move`)
+  }
+  return{currentTurn,switchTurn,currentBoard,playRound}
 })();
 
 console.log(gameController.currentTurn)
-gameController.switchTurn()
+gameController.playRound()
