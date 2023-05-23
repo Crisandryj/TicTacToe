@@ -9,9 +9,9 @@ const gameboard = (() => {
       board[i] = []
       for(let j = 0; j < columns;j++){
       board[i].push(cell())
-      }
-      return {board}
+      }      
     }
+    return {board}
   };
 
   function cell(){
@@ -52,7 +52,7 @@ const gameController = (() =>{
    }
   const playRound = () => {
     console.log(`${currentTurn.getName()} make your move`)
-    console.log(row1)
+    console.log(currentBoard)
 
   }
   return{currentTurn,switchTurn,currentBoard,playRound}
