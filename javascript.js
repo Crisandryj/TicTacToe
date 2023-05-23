@@ -42,6 +42,9 @@ const gameController = (() =>{
   }
   let currentTurn = players.playerOne
   let currentBoard = gameboard.createBoard()
+  const row1 = currentBoard.board[0]
+  const row2 = currentBoard.board[1]
+  const row3 = currentBoard.board[2]
 
   const switchTurn = () => {
      currentTurn = currentTurn == players.playerOne ? players.playerTwo : players.playerOne
@@ -49,9 +52,11 @@ const gameController = (() =>{
    }
   const playRound = () => {
     console.log(`${currentTurn.getName()} make your move`)
+    console.log(row1)
+
   }
   return{currentTurn,switchTurn,currentBoard,playRound}
 })();
 
-console.log(gameController.currentTurn)
+
 gameController.playRound()
