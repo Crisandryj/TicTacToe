@@ -9,20 +9,30 @@ const gameboard = (() => {
       board[i] = []
       for(let j = 0; j < columns;j++){
       board[i].push(cell())
-      }      
+      }
     }
     return {board}
   };
 
   function cell(){
-    let value = 0
+    let value = ''
     const marker = (mark) =>{
       value = mark
       console.log(value)
     }
       return{marker}
     };
-  return {board,cell,createBoard}
+
+    function drawBoard(){
+      let a = ('     ' +'|'+ '     ' +'|'+'     '+'\n'
+              +' ___ ' +'|'+ ' ___ ' +'|'+ ' ___ '+'\n'
+              +'     ' +'|'+ '     ' +'|'+ '     '+'\n'
+              +' ___ ' +'|'+ ' ___ ' +'|'+ ' ___ '+'\n'
+              +'     ' +'|'+ '     ' +'|'+ '     '+'\n'
+              )
+      console.log(a)
+    }
+  return {board,cell,createBoard,drawBoard}
 })();
 
 
@@ -50,10 +60,9 @@ const gameController = (() =>{
      currentTurn = currentTurn == players.playerOne ? players.playerTwo : players.playerOne
      console.log(currentTurn)
    }
-  const playRound = () => {
-    console.log(`${currentTurn.getName()} make your move`)
-    console.log(currentBoard)
 
+  const playRound = () => {
+    gameboard.drawBoard()
   }
   return{currentTurn,switchTurn,currentBoard,playRound}
 })();
