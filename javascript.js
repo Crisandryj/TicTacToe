@@ -27,8 +27,8 @@ const gameboard = (() => {
       for(let i = 0; i < 3; i++){
         console.log(board[i]) }
     }
-    
-  return {board,cell,createBoard,drawBoard}
+
+  return {createBoard,drawBoard}
 })();
 
 
@@ -36,7 +36,11 @@ const Player = (mark,name) =>{
   const getMarker = () => mark
   const getName = () => name
 
-  return{getName, getMarker}
+  function select(a,b){
+
+  }
+
+  return{getName, getMarker, select}
 };
 
 
@@ -47,9 +51,6 @@ const gameController = (() =>{
   }
   let currentTurn = players.playerOne
   let currentBoard = gameboard.createBoard()
-  const row1 = currentBoard.board[0]
-  const row2 = currentBoard.board[1]
-  const row3 = currentBoard.board[2]
 
   const switchTurn = () => {
      currentTurn = currentTurn == players.playerOne ? players.playerTwo : players.playerOne
@@ -57,10 +58,13 @@ const gameController = (() =>{
    }
 
   const playRound = () => {
-    gameboard.drawBoard()
+
   }
   return{currentTurn,switchTurn,currentBoard,playRound}
 })();
 
 
+let james = Player('x', 'james')
 gameController.playRound()
+
+james.select(1,1)
