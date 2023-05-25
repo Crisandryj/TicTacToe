@@ -23,18 +23,13 @@ const gameboard = (() => {
       return{marker}
     };
 
-    function drawBoard(){
-      let a = ('     ' +'|'+ '     ' +'|'+'     '+'\n'
-              +' ___ ' +'|'+ ' ___ ' +'|'+ ' ___ '+'\n'
-              +'     ' +'|'+ '     ' +'|'+ '     '+'\n'
-              +' ___ ' +'|'+ ' ___ ' +'|'+ ' ___ '+'\n'
-              +'     ' +'|'+ '     ' +'|'+ '     '+'\n'
-              )
-      console.log(a)
+   function drawBoard(){
+      for(let i = 0; i < 3; i++){
+        console.log(board[i]) }
     }
+    
   return {board,cell,createBoard,drawBoard}
 })();
-
 
 
 const Player = (mark,name) =>{
