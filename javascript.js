@@ -63,7 +63,7 @@ const gameController = (() =>{
     const input = prompt('make your move')
     players.playerOne.select(currentBoard.board,input)
     gameboard.renderBoard(currentBoard.board)
-    
+    switchTurn()
     }
   return{currentTurn,switchTurn,playRound}
 })();
