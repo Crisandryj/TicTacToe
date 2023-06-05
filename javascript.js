@@ -57,15 +57,21 @@ const gameController = (() =>{
      currentTurn = currentTurn == players.playerOne ? players.playerTwo : players.playerOne
    }
 
-  const playRound = () => {
-    gameboard.renderBoard(currentBoard.board)
-    console.log(currentTurn.getName() + " it's your turn")
-    const input = prompt('make your move')
-    players.playerOne.select(currentBoard.board,input)
-    gameboard.renderBoard(currentBoard.board)
-    switchTurn()
+  function gameOver (){
+    
+  }
+  
+
+  const playRound = () =>{
+      gameboard.renderBoard(currentBoard.board)
+      console.log(currentTurn.getName() + " it's your turn")
+      const input = prompt('make your move')
+      players.playerOne.select(currentBoard.board,input)
+      gameboard.renderBoard(currentBoard.board)
+      switchTurn()
+    end 
     }
-  return{currentTurn,switchTurn,playRound}
+  return{currentTurn,playRound}
 })();
 
 
