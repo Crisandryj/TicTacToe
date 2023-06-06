@@ -10,6 +10,15 @@ const gameboard = (() => {
     }
   }
 
+  function Cell(){
+    let value = 0
+    const addMarker = (player) => {
+      value = player
+    }
+    const getValue = () => value;
+
+  }
+
 })();
 
 const Player = () =>{
