@@ -11,7 +11,7 @@ const gameboard = (() => {
   }
 
   function Cell(){
-    let value = 0
+    let value = 0;
     const addMarker = (player) => {
       value = player
     }
