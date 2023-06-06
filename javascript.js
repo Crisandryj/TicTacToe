@@ -4,17 +4,14 @@ const gameboard = (() => {
   const columns = 3;
 
   //createboard
-  function createBoard(){
-    for (let i = 0; i < rows; i++){
-      board[i] = []
-      for(let j = 0; j < columns;j++){
-      board[i].push(cell())
-      }
+  for (let i = 0; i < rows; i++) {
+    board[i] = [];
+    for (let j = 0; j < columns; j++) {
+      board[i].push(Cell());
     }
-    return {board}
-  };
+  }
 
-  function cell(x){
+  function Cell(x){
     let value = 1
     const marker = (mark) =>{
       value = mark
@@ -23,12 +20,12 @@ const gameboard = (() => {
       return{marker}
     };
 
-   function renderBoard(board){
-      for(let i = 0; i < 3; i++){
-        console.log(board[i]) }
+    const renderBoard = () => {
+      const boardWithCellValues = board.map((row) => row.map((cell) => cell.getValue()))
+      console.log(boardWithCellValues);
     }
 
-  return {createBoard,renderBoard}
+  return {renderBoard}
 })();
 
 
@@ -46,7 +43,7 @@ const Player = (mark,name) =>{
 
 
 const gameController = (() =>{
-  const currentBoard = gameboard.createBoard()
+
   const players = {
     playerOne: Player('x','James'),
     playerTwo: Player('o','Jimmy')
@@ -58,20 +55,14 @@ const gameController = (() =>{
    }
 
   function gameOver (){
-    
+ 
   }
   
 
   const playRound = () =>{
-      gameboard.renderBoard(currentBoard.board)
-      console.log(currentTurn.getName() + " it's your turn")
-      const input = prompt('make your move')
-      players.playerOne.select(currentBoard.board,input)
-      gameboard.renderBoard(currentBoard.board)
-      switchTurn()
-    end 
+
     }
-  return{currentTurn,playRound}
+  return{currentTurn,playRound,gameOver}
 })();
 
 
