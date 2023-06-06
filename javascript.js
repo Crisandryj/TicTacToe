@@ -11,13 +11,14 @@ const gameboard = (() => {
     }
   }
 
-  function Cell(x){
-    let value = 1
+  function Cell(){
+    let value = 0
+    const getValue = () => value
     const marker = (mark) =>{
       value = mark
       console.log(value)
     }
-      return{marker}
+      return{marker, getValue}
     };
 
     const renderBoard = () => {
@@ -68,4 +69,4 @@ const gameController = (() =>{
 
 let james = Player('x', 'james')
 
-gameController.playRound()
+gameboard.renderBoard()
