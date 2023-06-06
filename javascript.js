@@ -16,14 +16,18 @@ const gameboard = (() => {
       value = player
     }
     const getValue = () => value;
-
     return{addMarker, getValue}
   }
 
   const getBoard = () => board;
 
+  const printBoard = () =>{
+    const boardWithCellValues = board.map(row => row.map(cell => cell.getValue()))
+    console.log(boardWithCellValues)
+  }
 
-  return{getBoard}
+
+  return{getBoard, printBoard}
 
 })();
 
@@ -35,6 +39,8 @@ const Player = () =>{
 const gameController = (() =>{
 
 })();
+
+gameboard.printBoard()
 
 
 
