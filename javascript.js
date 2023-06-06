@@ -17,7 +17,13 @@ const gameboard = (() => {
     }
     const getValue = () => value;
 
+    return{addMarker, getValue}
   }
+
+  const getBoard = () => board;
+
+
+  return{getBoard}
 
 })();
 
