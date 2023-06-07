@@ -27,8 +27,10 @@ const gameBoard = (() => {
   }
 
   const selectCell = (row,column,player) => {
-    const availableCells = board.filter((row)=>row[column].getValue == 0).map((row)=>row[column])
-    if (!availableCells.length) return;
+    if (board[row][column].getValue != 0) console.log('unavailable') 
+    board[row][column].addMarker(player.getMarker)
+    console.log(board[row][column].getValue())
+    return
   }
   
 
@@ -38,24 +40,23 @@ const gameBoard = (() => {
 
 const Player = (name,mark) =>{
  const getName = () => name
- const marker = mark
+ const getMarker = mark
 
 
- return{getName}
+ return{getName, getMarker}
 
 };
 
 
 const gameController = (() =>{
-
+  const board = gameBoard
+  
+  return {board}
 })();
 
-gameBoard.printBoard()
-gameBoard.selectCell(0,0)
+const jim = Player("Jim","x")
 
-let array =[]
-
-console.log(!array.length)
+gameController.board.printBoard()
 
 
 
