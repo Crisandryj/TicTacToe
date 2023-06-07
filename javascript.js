@@ -32,12 +32,17 @@ const gameBoard = (() => {
   }
   
 
-
   return{getBoard, printBoard, selectCell}
 
 })();
 
-const Player = () =>{
+const Player = (name,mark) =>{
+ const name = name
+ const mark = mark
+
+ const getName = () => name
+
+ return{getName}
 
 
 };
