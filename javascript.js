@@ -26,10 +26,14 @@ const gameBoard = (() => {
     console.log(boardWithCellValues)
   }
 
+  const selectCell = (row,column,player) => {
+    const availableCells = board.filter((row)=>row[column].getValue == 0).map((row)=>row[column])
+    
+  }
   
 
 
-  return{getBoard, printBoard}
+  return{getBoard, printBoard, selectCell}
 
 })();
 
@@ -43,7 +47,8 @@ const gameController = (() =>{
 
 })();
 
-gameboard.printBoard()
+gameBoard.printBoard()
+gameBoard.selectCell(0,0)
 
 
 
