@@ -1,4 +1,4 @@
-const gameboard = (() => {
+const gameBoard = (() => {
   const board = [];
   const rows = 3;
   const columns = 3;
@@ -25,6 +25,7 @@ const gameboard = (() => {
     const boardWithCellValues = board.map(row => row.map(cell => cell.getValue()))
     console.log(boardWithCellValues)
   }
+
   
 
 
