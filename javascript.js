@@ -28,7 +28,7 @@ const gameBoard = (() => {
 
   const selectCell = (row,column,player) => {
     const availableCells = board.filter((row)=>row[column].getValue == 0).map((row)=>row[column])
-    
+    if (!availableCells.length) return;
   }
   
 
@@ -37,13 +37,11 @@ const gameBoard = (() => {
 })();
 
 const Player = (name,mark) =>{
- const name = name
- const mark = mark
-
  const getName = () => name
+ const marker = mark
+
 
  return{getName}
-
 
 };
 
@@ -55,7 +53,9 @@ const gameController = (() =>{
 gameBoard.printBoard()
 gameBoard.selectCell(0,0)
 
+let array =[]
 
+console.log(!array.length)
 
 
 
