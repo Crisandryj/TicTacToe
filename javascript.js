@@ -27,14 +27,14 @@ const gameBoard = (() => {
   }
 
   const selectCell = (row,column,player) => {
-    if (board[row][column].getValue != 0) console.log('unavailable') 
-    board[row][column].addMarker(player.getMarker)
+    if (board[row][column].getValue() != 0) console.log('unavailable') 
+    board[row][column].addMarker(player)
     console.log(board[row][column].getValue())
     return
   }
   
 
-  return{getBoard, printBoard, selectCell}
+  return{getBoard, printBoard, selectCell, board}
 
 })();
 
@@ -52,19 +52,19 @@ const gameController = (() =>{
   const board = gameBoard
   const playerOne = Player("Jim","X")
   const playerTwo = Player("Joe","O")
-  const players = [
-    {name: playerOne.getName(),
-     marker: playerOne.getMarker
-    },
-    {name: playerTwo.getName(),
-    marker: playerTwo.getMarker
-    },
-  ]
+  // const players = [
+  //   {name: playerOne.getName(),
+  //    marker: playerOne.getMarker
+  //   },
+  //   {name: playerTwo.getName(),
+  //   marker: playerTwo.getMarker
+  //   },
+  // ]
 
-  let currentTurn = players[0]
+  let currentTurn = playerOne
 
   const switchTurns = () => {
-    currentTurn = currentTurn === players[0] ? players[1] : players[0]
+    currentTurn = currentTurn === playerOne ? playerOne : playerTwo
   }
   const printNewRound = () => {
     board.printBoard()
@@ -73,7 +73,8 @@ const gameController = (() =>{
 
   const playRound = (column,row) =>{
     console.log(`Selected ${currentTurn.name}'s mark selected ${row} and ${column}`)
-    board.selectCell(row,column,currentTurn)
+    board.selectCell(row,column,currentTurn.getMarker)
+
     switchTurns()
     printNewRound()
   }
@@ -81,11 +82,7 @@ const gameController = (() =>{
   return {board, currentTurn,playRound}
 })();
 
-const jim = Player("Jim","x")
-
-
-
-
+gameController.playRound(2,2)
 
 
 
