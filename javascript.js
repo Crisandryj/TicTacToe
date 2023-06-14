@@ -50,13 +50,24 @@ const Player = (name,mark) =>{
 
 const gameController = (() =>{
   const board = gameBoard
+  const playerOne = Player("Jim","X")
+  const playerTwo = Player("Joe","O")
+  const players = [
+    {name: playerOne.getName(),
+     marker: playerOne.getMarker()
+    },
+    {name: playerTwo.getName(),
+      marker: playerTwo.getMarker()
+    },
+  ]
   
-  return {board}
+  return {board, currentTurn}
 })();
 
 const jim = Player("Jim","x")
 
 gameController.board.printBoard()
+console.log(gameController.currentTurn())
 
 
 
