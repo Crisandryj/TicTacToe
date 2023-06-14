@@ -62,6 +62,9 @@ const gameController = (() =>{
   ]
 
   let currentTurn = players[0]
+  const switchTurns = () => {
+    currentTurn = currentTurn === players[0] ? players[1] : players[0]
+  }
   return {board, currentTurn}
 })();
 
