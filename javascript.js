@@ -64,15 +64,15 @@ const gameController = (() =>{
   let currentTurn = playerOne
 
   const switchTurns = () => {
-    currentTurn = currentTurn === playerOne ? playerOne : playerTwo
+    currentTurn = currentTurn === playerOne ? playerTwo : playerOne
   }
   const printNewRound = () => {
     board.printBoard()
-    console.log(`${currentTurn.name}'s turn`)
+    console.log(`${currentTurn.getName()}'s turn`)
   }
 
   const playRound = (column,row) =>{
-    console.log(`Selected ${currentTurn.name}'s mark selected ${row} and ${column}`)
+    console.log(`Selected ${currentTurn.getName()}'s mark selected ${row} and ${column}`)
     board.selectCell(row,column,currentTurn.getMarker)
 
     switchTurns()
