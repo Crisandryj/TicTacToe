@@ -70,12 +70,20 @@ const gameController = (() =>{
     board.printBoard()
     console.log(`${currentTurn.name}'s turn`)
   }
-  return {board, currentTurn,printNewRound}
+
+  const playRound = (column,row) =>{
+    console.log(`Selected ${currentTurn.name}'s mark selected ${row} and ${column}`)
+    board.selectCell(row,column,currentTurn)
+    switchTurns()
+    printNewRound()
+  }
+  printNewRound()
+  return {board, currentTurn,playRound}
 })();
 
 const jim = Player("Jim","x")
 
-gameController.printNewRound()
+
 
 
 
