@@ -54,20 +54,21 @@ const gameController = (() =>{
   const playerTwo = Player("Joe","O")
   const players = [
     {name: playerOne.getName(),
-     marker: playerOne.getMarker()
+     marker: playerOne.getMarker
     },
     {name: playerTwo.getName(),
-      marker: playerTwo.getMarker()
+    marker: playerTwo.getMarker
     },
   ]
-  
+
+  let currentTurn = players[0]
   return {board, currentTurn}
 })();
 
 const jim = Player("Jim","x")
 
 gameController.board.printBoard()
-console.log(gameController.currentTurn())
+console.log(gameController.currentTurn)
 
 
 
