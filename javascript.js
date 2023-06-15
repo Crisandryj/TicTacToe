@@ -9,22 +9,7 @@ const gameBoard = (() => {
       board[i].push(Cell());
     }
   }
-
-  function Cell(){
-    let value = 0;
-    const addMarker = (player) => {
-      value = player
-    }
-    const getValue = () => value;
-    return{addMarker, getValue}
-  }
-
   const getBoard = () => board;
-
-  const printBoard = () =>{
-    const boardWithCellValues = board.map(row => row.map(cell => cell.getValue()))
-    console.log(boardWithCellValues)
-  }
 
   const selectCell = (row,column,player) => {
     if (board[row][column].getValue() != 0) console.log('unavailable') 
@@ -32,11 +17,25 @@ const gameBoard = (() => {
     console.log(board[row][column].getValue())
     return
   }
-  
 
-  return{getBoard, printBoard, selectCell, board}
+  const printBoard = () =>{
+    const boardWithCellValues = board.map(row => row.map(cell => cell.getValue()))
+    console.log(boardWithCellValues)
+  }
+
+  return{getBoard, printBoard, selectCell}
 
 })();
+
+function Cell(){
+  let value = 0;
+  const addMarker = (player) => {
+    value = player
+  }
+  const getValue = () => value;
+  return{addMarker, getValue}
+}
+
 
 const Player = (name,mark) =>{
  const getName = () => name
@@ -48,7 +47,7 @@ const Player = (name,mark) =>{
 };
 
 
-const gameController = (() =>{
+function GameController () {
   const board = gameBoard
   const playerOne = Player("Jim","X")
   const playerTwo = Player("Joe","O")
@@ -59,6 +58,9 @@ const gameController = (() =>{
   const switchTurns = () => {
     currentPlayerTurn = currentPlayerTurn === playerOne ? playerTwo : playerOne
   }
+
+  const getActivePlayer = () => currentPlayerTurn;
+
   const printNewRound = () => {
     board.printBoard()
     console.log(`${currentPlayerTurn.getName()}'s turn`)
@@ -71,24 +73,27 @@ const gameController = (() =>{
     switchTurns()
     printNewRound()
   }
-  printNewRound()
-  return {currentPlayerTurn,
+
+ 
+  return {getActivePlayer,
           playRound,
           getBoard: board.getBoard}
-})();
+};
 
 function ScreenController () {
-  const game = gameController
-  console.log(game)
+  const game = GameController()
   const playerTurnDiv = document.querySelector('.turn')
   const boardDiv = document.querySelector('.board')
+ 
 
   const updateScreen = () =>{
+
     // clear board
     boardDiv.textContent = ""
     //get newest version of the board and player turn
     const board = game.getBoard();
-    const activePlayer = game.currentPlayerTurn();
+    console.log(board)
+    const activePlayer = game.getActivePlayer();
     //Display players turn
     playerTurnDiv.textContent = `${activePlayer.name}'s turn...`
     //Render board squares
@@ -99,23 +104,24 @@ function ScreenController () {
         //create data attribute to identify column
         //This makes it easier to pass into our 'playRound'Function
         cellButton.dataset.column = index
+        cellButton.dataset.row = cell
         cellButton.textContent = cell.getValue();
         boardDiv.appendChild(cellButton)
       })
     })
-
-    const clickHandlerBoard = (e) => {
-      const selectedColumn = e.target.dataset.column;
-      if (!selectedColumn) return;
-      game.playRound(selectedColumn);
-      updateScreen();
-
-      boardDiv.addEventListener("click", clickHandlerBoard)
-
-      updateScreen();
-    
-    };
   }
+  function clickHandlerBoard(e) {
+    const selectedColumn = e.target.dataset.column;
+    const selectedRow = e.target.dataset.row;
+    if (!selectedColumn) return;
+    game.playRound(selectedColumn,selectedRow);
+    updateScreen();
+  };
+
+  boardDiv.addEventListener("click", clickHandlerBoard)
+  
+  //initial render
+  updateScreen();
 };
 
 ScreenController();
