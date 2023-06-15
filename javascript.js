@@ -107,16 +107,19 @@ function ScreenController () {
         boardDiv.appendChild(cellButton)
       })
     })
+
+    const clickHandlerBoard = (e) => {
+      const selectedColumn = e.target.dataset.column;
+      if (!selectedColumn) return;
+      game.playRound(selectedColumn);
+      updateScreen();
+
+      boardDiv.addEventListener("click", clickHandlerBoard)
+
+      updateScreen();
+    
+    };
   }
-
-const clickHandlerBoard = () => {
-
 };
 
-};
-
-
-
-
-
-
+ScreenController();
