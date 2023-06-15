@@ -83,6 +83,10 @@ const gameController = (() =>{
 })();
 
 const screenController = (() => {
+  const game = gameController()
+  const playerTurnDiv = document.querySelector('.turn')
+  const boardDiv = document.querySelector('.board')
+  
   const updateScreen = () =>{
 
   }
