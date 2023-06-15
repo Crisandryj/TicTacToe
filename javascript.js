@@ -61,25 +61,36 @@ const gameController = (() =>{
   //   },
   // ]
 
-  let currentTurn = playerOne
+  let currentPlayerTurn = playerOne
 
   const switchTurns = () => {
-    currentTurn = currentTurn === playerOne ? playerTwo : playerOne
+    currentPlayerTurn = currentPlayerTurn === playerOne ? playerTwo : playerOne
   }
   const printNewRound = () => {
     board.printBoard()
-    console.log(`${currentTurn.getName()}'s turn`)
+    console.log(`${currentPlayerTurn.getName()}'s turn`)
   }
 
   const playRound = (column,row) =>{
-    console.log(`Selected ${currentTurn.getName()}'s mark selected ${row} and ${column}`)
-    board.selectCell(row,column,currentTurn.getMarker)
+    console.log(`Selected ${currentPlayerTurn.getName()}'s mark selected ${row} and ${column}`)
+    board.selectCell(row,column,currentPlayerTurn.getMarker)
 
     switchTurns()
     printNewRound()
   }
   printNewRound()
-  return {board, currentTurn,playRound}
+  return {currentPlayerTurn,playRound}
+})();
+
+const screenController = (() => {
+  const updateScreen = () =>{
+
+  }
+
+const clickHandlerBoard = () => {
+
+};
+
 })();
 
 gameController.playRound(2,2)
