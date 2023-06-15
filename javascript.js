@@ -82,8 +82,8 @@ const gameController = (() =>{
   return {currentPlayerTurn,playRound}
 })();
 
-const screenController = (() => {
-  const game = gameController()
+function ScreenController () {
+  const game = gameController
   const playerTurnDiv = document.querySelector('.turn')
   const boardDiv = document.querySelector('.board')
 
@@ -96,16 +96,27 @@ const screenController = (() => {
     //Display players turn
     playerTurnDiv.textContent = `${activePlayer.name}'s turn...`
     //Render board squares
-    
+    board.forEach(row =>{
+      row.forEach((cell,index)=>{
+        const cellButton = document.createElement("button");
+        cellButton.classList.add("cell")
+        //create data attribute to identify column
+        //This makes it easier to pass into our 'playRound'Function
+        cellButton.dataset.column = index
+        cellButton.textContent = cell.getValue();
+        boardDiv.appendChild(cellButton)
+      })
+    })
   }
 
 const clickHandlerBoard = () => {
 
 };
 
-})();
+};
 
-gameController.playRound(2,2)
+
+
 
 
 
