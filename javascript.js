@@ -86,9 +86,17 @@ const screenController = (() => {
   const game = gameController()
   const playerTurnDiv = document.querySelector('.turn')
   const boardDiv = document.querySelector('.board')
-  
-  const updateScreen = () =>{
 
+  const updateScreen = () =>{
+    // clear board
+    boardDiv.textContent = ""
+    //get newest version of the board and player turn
+    const board = game.getBoard();
+    const activePlayer = game.currentPlayerTurn();
+    //Display players turn
+    playerTurnDiv.textContent = `${activePlayer.name}'s turn...`
+    //Render board squares
+    
   }
 
 const clickHandlerBoard = () => {
