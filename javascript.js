@@ -52,14 +52,7 @@ const gameController = (() =>{
   const board = gameBoard
   const playerOne = Player("Jim","X")
   const playerTwo = Player("Joe","O")
-  // const players = [
-  //   {name: playerOne.getName(),
-  //    marker: playerOne.getMarker
-  //   },
-  //   {name: playerTwo.getName(),
-  //   marker: playerTwo.getMarker
-  //   },
-  // ]
+ 
 
   let currentPlayerTurn = playerOne
 
@@ -79,11 +72,14 @@ const gameController = (() =>{
     printNewRound()
   }
   printNewRound()
-  return {currentPlayerTurn,playRound}
+  return {currentPlayerTurn,
+          playRound,
+          getBoard: board.getBoard}
 })();
 
 function ScreenController () {
   const game = gameController
+  console.log(game)
   const playerTurnDiv = document.querySelector('.turn')
   const boardDiv = document.querySelector('.board')
 
