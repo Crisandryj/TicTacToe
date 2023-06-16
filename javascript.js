@@ -94,7 +94,7 @@ function ScreenController () {
     const board = game.getBoard();
     const activePlayer = game.getActivePlayer();
     //Display players turn
-    playerTurnDiv.textContent = `${activePlayer.name}'s turn...`
+    playerTurnDiv.textContent = `${activePlayer.getName()}'s turn...`
     //Render board squares
     board.forEach((row,indx) =>{
       row.forEach((cell,index)=>{
