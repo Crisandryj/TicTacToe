@@ -11,6 +11,8 @@ const gameBoard = (() => {
     }
   } 
 
+  const getBoard = () => board
+
   function Cell(){
     const value = 0
     const addMarker = (player) => player.mark
@@ -21,6 +23,9 @@ const gameBoard = (() => {
     return {addMarker, getValue}
   }
     
-  console.log(board)
+
+return {getBoard}
 
 })();
+
+console.log(gameBoard.getBoard())
