@@ -25,7 +25,7 @@ const gameBoard = (() => {
     const getMark = () => mark
     const getValue = () => value
 
-    return {addMarker, getValue}
+    return {addMarker, getValue, getMark}
   }
     
 
