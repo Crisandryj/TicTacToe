@@ -14,7 +14,7 @@ const gameBoard = (() => {
   const getBoard = () => board
 
   const printBoard = () => {
-    boardWithValues =board.map(row => row.map(cell => cell.value = 0))
+    boardWithValues = board.map(row => row.map(cell => cell.value = 0))
     console.log(boardWithValues)
   }
 
