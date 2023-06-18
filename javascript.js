@@ -27,9 +27,16 @@ const gameBoard = (() => {
     return {addMarker, getValue, getMark}
   }
     
-
 return {getBoard, printBoard}
 
 })();
 
-gameBoard.printBoard()
+const player = (name, mark) =>{
+  const name = name;
+  const mark = mark;
+
+  const getName = () => name;
+  const getMark = () => mark;
+
+  return {getName}
+}
