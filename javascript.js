@@ -2,8 +2,7 @@ const gameBoard = (() => {
   const board = [];
   const rows = 3;
   const columns = 3;
-  i = 0
-  c = 0
+ 
   for (i = 0; i < rows; i++) {
     board.push([])
     for (c = 0; c < columns; c++){
