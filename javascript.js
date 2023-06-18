@@ -32,11 +32,20 @@ return {getBoard, printBoard}
 })();
 
 const player = (name, mark) =>{
-  const name = name;
-  const mark = mark;
+  const playerName = name;
+  const marker = mark;
 
-  const getName = () => name;
-  const getMark = () => mark;
+  const getPlayerName = () => name;
+  const getMarker = () => mark;
 
-  return {getName}
-}
+  return {getPlayerName, getMarker}
+
+};
+
+function GameController () {
+  const board = gameBoard.getBoard();
+  const playerOne = player("Jim","X")
+  const playerTwo = player("James","O")
+
+  return {board}
+};
