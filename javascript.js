@@ -50,8 +50,12 @@ function GameController () {
   const currentPlayerTurn = playerOne
 
   const switchTurns = () => {
-    currentPlayerTurn = (currentTurn = playerOne? playerTwo : playerOne)
+    currentPlayerTurn = (currentPlayerTurn = playerOne? playerTwo : playerOne)
   }
 
-  return {board}
+  const playRound = () => {
+    console.log(`${currentPlayerTurn.getPlayerName()} make your move`)
+  }
+
+  return {board,playRound,currentPlayerTurn}
 };
