@@ -47,5 +47,11 @@ function GameController () {
   const playerOne = player("Jim","X")
   const playerTwo = player("James","O")
 
+  const currentPlayerTurn = playerOne
+
+  const switchTurns = () => {
+    currentPlayerTurn = (currentTurn = playerOne? playerTwo : playerOne)
+  }
+
   return {board}
 };
