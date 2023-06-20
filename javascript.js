@@ -26,6 +26,10 @@ const gameBoard = (() => {
 
     return {addMarker, getValue, getMark}
   }
+
+  const selectCell = (row,column,player) =>  {
+    
+  }
     
 return {getBoard, printBoard}
 
@@ -55,6 +59,7 @@ function GameController () {
 
   const playRound = () => {
     console.log(`${currentPlayerTurn.getPlayerName()} make your move`)
+
   }
 
   return {board,playRound,currentPlayerTurn}
