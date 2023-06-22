@@ -70,6 +70,5 @@ function GameController () {
 const james = player('jim','X')
 
 
-gameBoard.selectCell(0,2,james);
+console.log(GameController.board.printBoard) 
 
-gameBoard.printBoard()
