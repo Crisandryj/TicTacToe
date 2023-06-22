@@ -49,7 +49,7 @@ const player = (name, mark) =>{
 };
 
 function GameController () {
-  const board = gameBoard.getBoard();
+  const board = gameBoard;
   const playerOne = player("Jim","X")
   const playerTwo = player("James","O")
 
@@ -59,8 +59,9 @@ function GameController () {
     currentPlayerTurn = (currentPlayerTurn = playerOne? playerTwo : playerOne)
   }
 
-  const playRound = () => {
+  const playRound = (row,column) => {
     console.log(`${currentPlayerTurn.getPlayerName()} make your move`)
+    board.selectCell(row,column,playerOne)
 
   }
 
@@ -70,5 +71,4 @@ function GameController () {
 const james = player('jim','X')
 
 
-console.log(GameController.board.printBoard) 
 
