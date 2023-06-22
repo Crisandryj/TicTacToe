@@ -19,7 +19,7 @@ const gameBoard = (() => {
 
   function Cell(){
     const value = 0
-    const addMarker = (player) => player.mark
+    const addMarker = (player) => player.getMarker()
 
     const getMark = () => mark
     const getValue = () => value
@@ -28,10 +28,12 @@ const gameBoard = (() => {
   }
 
   const selectCell = (row,column,player) =>  {
-    
+    if (board[row][column].getValue() != 0) console.log("unavailable")
+    board[row][column].addMarker(player)
+    console.log(board[row][column].getValue())
   }
     
-return {getBoard, printBoard}
+return {getBoard, printBoard, selectCell}
 
 })();
 
@@ -64,3 +66,10 @@ function GameController () {
 
   return {board,playRound,currentPlayerTurn}
 };
+
+const james = player('jim','X')
+
+
+gameBoard.selectCell(0,2,james);
+
+gameBoard.printBoard()
