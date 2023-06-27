@@ -13,7 +13,7 @@ const gameBoard = (() => {
   const getBoard = () => board
 
   const printBoard = () => {
-    boardWithValues = board.map(row => row.map(cell => cell.value = 0))
+    boardWithValues = board.map(row => row.map(cell => cell.getValue()))
     console.log(boardWithValues)
   }
 
@@ -62,8 +62,11 @@ function GameController () {
   const playRound = (row,column) => {
     console.log(`${currentPlayerTurn.getPlayerName()} make your move`)
     board.selectCell(row,column,playerOne)
+    board.printBoard()
 
   }
 
   return {board,playRound,currentPlayerTurn}
 };
+
+GameController().playRound(2,2)
