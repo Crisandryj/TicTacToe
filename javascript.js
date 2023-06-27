@@ -67,5 +67,3 @@ function GameController () {
 
   return {board,playRound,currentPlayerTurn}
 };
-
-const james = player('jim','X')
