@@ -69,6 +69,3 @@ function GameController () {
 };
 
 const james = player('jim','X')
-
-
-
