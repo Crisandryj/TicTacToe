@@ -53,17 +53,22 @@ function GameController () {
   const playerOne = player("Jim","X")
   const playerTwo = player("James","O")
 
-  const currentPlayerTurn = playerOne
+  let currentPlayerTurn = playerOne
 
   const switchTurns = () => {
     currentPlayerTurn = (currentPlayerTurn = playerOne? playerTwo : playerOne)
   }
 
+  const printNewRound = () =>{
+    console.log(`${currentPlayerTurn.getPlayerName()} make your move`)
+    board.printBoard()
+  }
+
   const playRound = (row,column) => {
     console.log(`${currentPlayerTurn.getPlayerName()} make your move`)
     board.selectCell(row,column,playerOne)
-    board.printBoard()
-
+    switchTurns()
+    printNewRound()
   }
 
   return {board,playRound,currentPlayerTurn}
