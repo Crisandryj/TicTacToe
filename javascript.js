@@ -73,7 +73,9 @@ function GameController () {
     printNewRound()
   }
 
-  return {board,playRound,getActivePlayer}
+  return {getBoard: board.getBoard,
+          playRound,
+          getActivePlayer}
 };
 
 GameController().playRound(2,2)
