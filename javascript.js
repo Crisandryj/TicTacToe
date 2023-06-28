@@ -83,13 +83,24 @@ function GameController () {
 function ScreenController () {
   const game = GameController();
   const playerTurnDiv = document.querySelector('.turn')
-  const playerBoardDiv = document.querySelector('.board')
+  const boardDiv = document.querySelector('.board')
 
   const updateScreen = () =>{
     const board = game.getBoard();
     const activePlayer = game.getActivePlayer()
-
-    
+    //Display players turn
+    playerTurnDiv.textContent = `${activePlayer.getPlayerName()}'s turn`
+    //Render board squares
+    board.forEach ((row,index) => {
+      row.forEach((cell,indx) =>{
+        cellButton = document.createElement("button")
+        cellButton.classList.add("cell")
+        cellButton.dataset.column = indx
+        cellButton.dataset.row = index
+        cellButton.textContent = cell.getValue()
+        board.boardDiv.appendChild(cellButton)
+      })
+    })
   }
 
 
