@@ -82,5 +82,15 @@ function GameController () {
 
 function ScreenController () {
   const game = GameController();
+  const playerTurnDiv = document.querySelector('.turn')
+  const playerBoardDiv = document.querySelector('.board')
+
+  const updateScreen = () =>{
+    const board = game.getBoard();
+    const activePlayer = game.getActivePlayer()
+
+    
+  }
+
 
 };
