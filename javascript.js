@@ -103,5 +103,18 @@ function ScreenController () {
     })
   }
 
+  function clickHandlerBoard (e){
+    const selectedRow = e.target.dataset.row;
+    const selectColumn = e.target.dataset.column;
+    if (!selectColumn) return;
+    game.playRound(selectedRow,selectedColumn)
+    updateScreen();
+  };
+
+  boardDiv.addEventListener('click',clickHandlerBoard)
+  //initial render
+  updateScreen()
 
 };
+
+ScreenController()
