@@ -19,7 +19,7 @@ const gameBoard = (() => {
 
   function Cell(){
     let value = 0
-    const addMarker = (player) => {value = player}
+    const addMarker = (playerMark) => {value = playerMark}
 
     const getMark = () => mark
     const getValue = () => value
@@ -41,8 +41,8 @@ const player = (name, mark) =>{
   const playerName = name;
   const marker = mark;
 
-  const getPlayerName = () => name;
-  const getMarker = () => mark;
+  const getPlayerName = () => playerName;
+  const getMarker = () => marker;
 
   return {getPlayerName, getMarker}
 
@@ -105,16 +105,16 @@ function ScreenController () {
 
   function clickHandlerBoard (e){
     const selectedRow = e.target.dataset.row;
-    const selectColumn = e.target.dataset.column;
-    if (!selectColumn) return;
+    const selectedColumn = e.target.dataset.column;
+    if (!selectedColumn) return;
     game.playRound(selectedRow,selectedColumn)
     updateScreen();
   };
 
-  boardDiv.addEventListener('click',clickHandlerBoard)
+  boardDiv.addEventListener('click',clickHandlerBoard);
   //initial render
-  updateScreen()
+  updateScreen();
 
 };
 
-ScreenController()
+ScreenController();
