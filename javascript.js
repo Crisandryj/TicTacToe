@@ -98,7 +98,7 @@ function ScreenController () {
         cellButton.dataset.column = indx
         cellButton.dataset.row = index
         cellButton.textContent = cell.getValue()
-        board.boardDiv.appendChild(cellButton)
+        boardDiv.appendChild(cellButton)
       })
     })
   }
