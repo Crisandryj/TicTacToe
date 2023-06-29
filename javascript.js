@@ -58,7 +58,7 @@ function GameController () {
   const getActivePlayer = () => currentPlayerTurn
 
   const switchTurns = () => {
-    currentPlayerTurn = (currentPlayerTurn = playerOne? playerTwo : playerOne)
+    currentPlayerTurn = (currentPlayerTurn === playerOne? playerTwo : playerOne)
   }
 
   const printNewRound = () =>{
@@ -86,6 +86,9 @@ function ScreenController () {
   const boardDiv = document.querySelector('.board')
 
   const updateScreen = () =>{
+    //clear board
+    boardDiv.textContent = ""
+
     const board = game.getBoard();
     const activePlayer = game.getActivePlayer()
     //Display players turn
