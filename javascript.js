@@ -50,8 +50,8 @@ const player = (name, mark) =>{
 
 function GameController () {
   const board = gameBoard;
-  const playerOne = player("Jim","O")
-  const playerTwo = player("James","X")
+  const playerOne = player("Player one","O")
+  const playerTwo = player("Player two","X")
 
   let currentPlayerTurn = playerOne
 
@@ -74,9 +74,18 @@ function GameController () {
     printNewRound()
   }
 
+  const gameOver = () => {
+   board.getBoard().forEach((row) => {
+     if(row.every((cell) => {
+      cell.getValue() === 0 
+     })) {console.log(hello)}
+    })
+  }
+
   return {getBoard: board.getBoard,
           playRound,
-          getActivePlayer}
+          getActivePlayer,
+          gameOver}
 };
 
 
@@ -92,7 +101,11 @@ function ScreenController () {
     const board = game.getBoard();
     const activePlayer = game.getActivePlayer()
     //Display players turn
+    console.log(game.gameOver())
+    if (game.gameOver()) { playerTurnDiv.textContent = "Game Over" }
+    else { 
     playerTurnDiv.textContent = `${activePlayer.getPlayerName()}'s turn`
+    }
     //Render board squares
     board.forEach ((row,index) => {
       row.forEach((cell,indx) =>{
@@ -109,8 +122,8 @@ function ScreenController () {
   function clickHandlerBoard (e){
     const selectedRow = e.target.dataset.row;
     const selectedColumn = e.target.dataset.column;
-    if (!selectedColumn) return;
     game.playRound(selectedRow,selectedColumn)
+    game.gameOver()
     updateScreen();
   };
 
