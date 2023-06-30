@@ -28,7 +28,7 @@ const gameBoard = (() => {
   }
 
   const selectCell = (row,column,player) =>  {
-    if (board[row][column].getValue() != 0) console.log("unavailable")
+    if (board[row][column].getValue() != 0) return
     board[row][column].addMarker(player.getMarker())
     console.log(board[row][column].getValue())
   }
@@ -76,9 +76,9 @@ function GameController () {
 
   const gameOver = () => {
    board.getBoard().forEach((row) => {
-     if(row.every((cell) => {
-      cell.getValue() === 0 
-     })) {console.log(hello)}
+     if ((row.every((cell) => {
+      cell.getValue() === 'X'
+     })) ) {return 'hi'}
     })
   }
 
