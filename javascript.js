@@ -75,11 +75,7 @@ function GameController () {
   }
 
   const gameOver = () => {
-   board.getBoard().forEach((row) => {
-    for (let i = 0; i < 3; i++){
-    console.log(row[i].getValue())
-    }
-    })
+
   }
 
   return {getBoard: board.getBoard,
