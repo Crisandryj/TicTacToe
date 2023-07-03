@@ -76,9 +76,9 @@ function GameController () {
 
   const gameOver = () => {
    board.getBoard().forEach((row) => {
-     if ((row.every((cell) => {
-      cell.getValue() === 'X'
-     })) ) {return 'hi'}
+    for (let i = 0; i < 3; i++){
+    console.log(row[i].getValue())
+    }
     })
   }
 
