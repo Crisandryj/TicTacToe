@@ -89,6 +89,26 @@ function ScreenController () {
   const game = GameController();
   const playerTurnDiv = document.querySelector('.turn')
   const boardDiv = document.querySelector('.board')
+  const resetGame = document.querySelector('.reset')
+
+  const reset = () =>{
+    console.log('rub')
+    const board = game.getBoard();
+    boardDiv.textContent = ""
+    //Render board squares
+    board.forEach ((row,index) => {
+      row.forEach((cell,indx) =>{
+        cellButton = document.createElement("button")
+        cellButton.classList.add("cell")
+        cellButton.dataset.column = indx
+        cellButton.dataset.row = index
+        cellButton.textContent = 0
+        boardDiv.appendChild(cellButton)
+      })
+    })
+  }
+
+  resetGame.addEventListener('click', reset)
 
   const updateScreen = () =>{
     //clear board
@@ -97,7 +117,6 @@ function ScreenController () {
     const board = game.getBoard();
     const activePlayer = game.getActivePlayer()
     //Display players turn
-    console.log(game.gameOver())
     if (game.gameOver()) { playerTurnDiv.textContent = "Game Over" }
     else { 
     playerTurnDiv.textContent = `${activePlayer.getPlayerName()}'s turn`
