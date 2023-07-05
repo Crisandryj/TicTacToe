@@ -48,10 +48,10 @@ const player = (name, mark) =>{
 
 };
 
-function GameController () {
+function GameController (playerOneName,playerTwoName) {
   const board = gameBoard;
-  const playerOne = player("Player one","O")
-  const playerTwo = player("Player two","X")
+  const playerOne = player(playerOneName,"O")
+  const playerTwo = player(playerTwoName,"X")
 
   let currentPlayerTurn = playerOne
 
@@ -86,7 +86,10 @@ function GameController () {
 
 
 function ScreenController () {
-  const game = GameController();
+  const playerOneName = document.getElementById('playeronename');
+  const playerTwoName = document.getElementById('playertwoname');
+  console.log(playerOneName)
+  const game = GameController(playerOneName.textContent,playerTwoName.textContent);
   const playerTurnDiv = document.querySelector('.turn')
   const boardDiv = document.querySelector('.board')
   const resetGame = document.querySelector('.reset')
